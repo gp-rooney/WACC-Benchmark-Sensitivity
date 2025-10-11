@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About – <!-- TODO: Your Name --></title>
+  <meta name="description" content="<!-- TODO: One‑sentence summary about you (for SEO) -->" />
+  <style>
+    :root{
+      --bg: #0f1115;
+      --panel: #12151c;
+      --text: #e7eaf0;
+      --muted: #a8b0bf;
+      --accent: #7aa2ff;
+      --ring: rgba(122,162,255,.35);
+      --border: #1d2230;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb; --panel:#ffffff; --text:#101321; --muted:#586174; --accent:#3b6dff; --ring:rgba(59,109,255,.2); --border:#e8eaf1;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+    header{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px; }
+    .brand{ display:flex; align-items:center; gap:14px; }
+    .avatar{ width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, var(--accent), transparent);
+      display:grid; place-items:center; color:var(--panel); font-weight:700; }
+    .avatar span{ font-size:20px; }
+    .nav a{ color:var(--muted); margin-left:14px; font-weight:600; }
+    .nav a:hover{ color:var(--text); }
+
+    .hero{ background:var(--panel); border:1px solid var(--border); padding:28px; border-radius:18px; display:grid; grid-template-columns: 96px 1fr; gap:20px; align-items:center; box-shadow: 0 10px 30px -12px var(--ring); }
+    .hero .big-avatar{ width:96px; height:96px; border-radius:50%; background: radial-gradient(60% 60% at 30% 30%, var(--accent), transparent), var(--panel); border:2px solid var(--border); }
+    .hero h1{ margin:0 0 8px; font-size: clamp(28px, 3vw, 36px); line-height:1.2; }
+    .hero p{ margin:0; color:var(--muted); }
+    .buttons{ margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--border); background:var(--panel); color:var(--text); font-weight:600; }
+    .btn.primary{ background:var(--accent); color:white; border-color:transparent; box-shadow:0 6px 20px -8px var(--ring); }
+
+    main{ margin-top:26px; display:grid; gap:26px; }
+    section{ background:var(--panel); border:1px solid var(--border); border-radius:18px; padding:22px; }
+    section h2{ margin:0 0 12px; font-size:22px; }
+    .prose{ color:var(--text); }
+    .muted{ color:var(--muted); }
+
+    .facts{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:8px 14px; margin-top:12px; }
+    .facts div{ background:rgba(127,127,127,.06); border:1px dashed var(--border); border-radius:12px; padding:10px 12px; }
+
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .tag{ padding:6px 10px; border-radius:999px; border:1px solid var(--border); background:rgba(127,127,127,.06); font-weight:600; font-size:14px; }
+
+    .timeline{ display:grid; gap:14px; }
+    .tl-item{ padding:14px; border:1px solid var(--border); border-radius:14px; display:grid; gap:4px; background:rgba(127,127,127,.04); }
+    .tl-item time{ font-size:12px; letter-spacing:.2px; color:var(--muted); }
+    .tl-item h3{ margin:0; font-size:18px; }
+    .tl-item p{ margin:0; color:var(--muted); }
+
+    .cards{ display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:14px; }
+    .card{ border:1px solid var(--border); border-radius:16px; padding:16px; background:rgba(127,127,127,.04); display:grid; gap:8px; }
+    .card h3{ margin:0 0 2px; font-size:18px; }
+    .card p{ margin:0; color:var(--muted); }
+
+    .contact{ display:grid; gap:10px; }
+    .contact a{ word-break: break-word; }
+
+    footer{ margin-top:18px; color:var(--muted); font-size:14px; text-align:center; }
+
+    @media (max-width:640px){
+      .hero{ grid-template-columns: 1fr; }
+      .hero .big-avatar{ width:72px; height:72px; }
+      .facts{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"><span><!-- TODO: Initials (e.g., GR) --></span></div>
+        <div>
+          <strong><!-- TODO: Your Name --></strong><br/>
+          <span class="muted"><!-- TODO: Short role (e.g., Economist & Builder) --></span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <!-- Optional: Update or remove -->
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="big-avatar" aria-hidden="true"></div>
+      <div>
+        <h1><!-- TODO: Headline about you (1 sentence) -->
+          <span class="muted" style="display:block; font-size:16px; font-weight:500; margin-top:6px;"><!-- TODO: Subheadline (what you're focused on now) --></span>
+        </h1>
+        <div class="buttons">
+          <a class="btn primary" href="<!-- TODO: Link to resume PDF or Google Drive -->" target="_blank" rel="noopener">Download Résumé</a>
+          <a class="btn" href="mailto:<!-- TODO: you@example.com -->">Email Me</a>
+          <a class="btn" href="<!-- TODO: LinkedIn URL -->" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <div class="prose">
+          <!-- TODO: Replace the paragraph(s) below with your own story. Aim for 120–200 words. -->
+          <p>
+            I'm <strong><!-- Your Name --></strong>, a <!-- role or field --> based in <!-- location -->. I care about <!-- themes: e.g., public service, economic research, products that help people -->.
+            Recently, I'm focused on <!-- current focus or projects -->.
+          </p>
+          <p>
+            Previously, I <!-- highlight 2–3 notable experiences or achievements in one sentence each -->. Outside work, I enjoy <!-- a bit of personality: hobbies, interests -->.
+          </p>
+        </div>
+        <div class="facts" aria-label="Quick facts">
+          <div><strong>Location:</strong> <!-- City, Country --></div>
+          <div><strong>Currently:</strong> <!-- e.g., Finishing BA in Economics at Chico State (Dec 2025) --></div>
+          <div><strong>Open to:</strong> <!-- e.g., Fellowships, full-time roles, collaborations --></div>
+          <div><strong>Contact:</strong> <a href="mailto:<!-- you@example.com -->"><!-- you@example.com --></a></div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <p class="muted"><!-- Brief line about your strengths or the stack you like working with. --></p>
+        <div class="tags">
+          <!-- TODO: Replace/extend these tags -->
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Econometrics</span>
+          <span class="tag">Policy Analysis</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Writing</span>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <!-- TODO: Duplicate .tl-item blocks for each role. Keep 3–5 entries. -->
+          <article class="tl-item">
+            <time><!-- e.g., Jun 2024 – Aug 2024 --></time>
+            <h3><!-- Role @ Organization --></h3>
+            <p><!-- 1–2 lines on impact, outcomes, or what you owned. Include metrics if possible. --></p>
+          </article>
+          <article class="tl-item">
+            <time><!-- e.g., Jan 2023 – May 2024 --></time>
+            <h3><!-- Role @ Organization --></h3>
+            <p><!-- 1–2 lines on impact, outcomes, or what you owned. --></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Selected Projects</h2>
+        <div class="cards">
+          <!-- TODO: Showcase 2–4 items you want people to click. -->
+          <article class="card">
+            <h3><!-- Project Name --></h3>
+            <p><!-- What it is, who it's for, your role, notable result. --></p>
+            <a href="<!-- link -->" target="_blank" rel="noopener">View project →</a>
+          </article>
+          <article class="card">
+            <h3><!-- Project Name --></h3>
+            <p><!-- Keep it short. --></p>
+            <a href="<!-- link -->" target="_blank" rel="noopener">View project →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact">
+          <p>Best way to reach me: <a href="mailto:<!-- you@example.com -->"><!-- you@example.com --></a></p>
+          <p>Elsewhere: <a href="<!-- LinkedIn URL -->" target="_blank" rel="noopener">LinkedIn</a> · <a href="<!-- Twitter URL -->" target="_blank" rel="noopener">Twitter</a> · <a href="<!-- GitHub URL -->" target="_blank" rel="noopener">GitHub</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="y"></span> <!-- TODO: Your Name --> · Built with plain HTML/CSS
+    </footer>
+  </div>
+
+  <script>
+    // Small nicety: auto-update the year in the footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
