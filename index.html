@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grant Rooney</title>
+  <meta name="description" content="Grant Rooney — 500 words/500 days. Writing, notes, and more." />
+  <meta property="og:title" content="Grant Rooney" />
+  <meta property="og:description" content="500 words/500 days. Writing, notes, and more." />
+  <style>
+    :root{ --bg:#ffffff; --fg:#0b0b0b; --muted:#595959; --border:#e8e8e8; --accent:#111; --wrap:820px }
+    @media (prefers-color-scheme: dark){ :root{ --bg:#0b0b0b; --fg:#f6f6f6; --muted:#b7b7b7; --border:#222; --accent:#fff } }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
+    a{color:inherit;text-decoration:none;border-bottom:1px solid var(--border)}
+    a:hover{border-bottom-color:var(--fg)}
+    .wrap{max-width:var(--wrap);margin:0 auto;padding:24px}
+    header.site{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding:16px 0;margin-bottom:24px}
+    nav a{margin-left:16px}
+    h1{font-size:clamp(28px,4vw,40px);margin:0}
+    h2{font-size:20px;margin:24px 0 12px}
+    .hero{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center}
+    .hero img{width:120px;height:120px;border-radius:16px;object-fit:cover;border:1px solid var(--border)}
+    .dash{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+    .card{border:1px solid var(--border);border-radius:16px;padding:14px}
+    .k{font-size:24px;font-weight:600}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:12px}
+    .bestof li,.archive li{margin:6px 0}
+    .btn{display:inline-block;border:1px solid var(--fg);border-radius:999px;padding:10px 14px}
+    .btn:hover{background:var(--fg);color:var(--bg)}
+    .section{display:none}
+    .section.active{display:block}
+    footer{border-top:1px solid var(--border);margin-top:40px;padding-top:16px;color:var(--muted);font-size:14px}
+    .subscribe{border:1px dashed var(--border);border-radius:16px;padding:16px;margin:18px 0}
+    .pill{display:inline-block;background:transparent;border:1px solid var(--border);padding:2px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .list-tight{padding-left:18px}
+    .heatmap{display:grid;grid-template-columns:repeat(35,10px);gap:4px}
+    .day{width:10px;height:10px;background:#dcdcdc;border-radius:2px}
+    .day.hit{background:#1a8917}
+    .sr{position:absolute;left:-9999px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <div><a href="#home" class="pill">GR</a></div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#rules">500/500</a>
+        <a href="#about">About</a>
+        <a href="#archive">Archive</a>
+      </nav>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <img src="https://placehold.co/240x240" alt="Grant Rooney" />
+        <div>
+          <h1>Grant Rooney</h1>
+          <p class="muted">Economics @ Chico State (’25). Writing daily-ish to find my voice. This site tracks a <strong>500 words × 500 days</strong> experiment.</p>
+          <div class="grid" style="margin-top:8px">
+            <a class="btn" href="#rules">What is 500/500?</a>
+            <a class="btn" href="#archive">Browse the archive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash">
+        <div class="card">
+          <div class="muted">Days in</div>
+          <div class="k" id="daysCount">–</div>
+        </div>
+        <div class="card">
+          <div class="muted">Words (min)</div>
+          <div class="k" id="minWords">–</div>
+        </div>
+        <div class="card">
+          <div class="muted">Random day</div>
+          <div class="k"><button id="rndBtn" class="btn" style="padding:8px 12px">Surprise me</button></div>
+        </div>
+      </div>
+
+      <div class="subscribe">
+        <h2>Subscribe</h2>
+        <p class="muted">Weekly digest of what I wrote. No fluff.</p>
+        <!-- Replace with your Substack embed code (Substack → Settings → Embed). -->
+        <div id="substack-embed" class="muted">Embed your Substack subscribe form here.</div>
+      </div>
+
+      <div class="bestof">
+        <h2>Best of</h2>
+        <ul class="list-tight">
+          <li><a href="#">Finding constraints that help me write</a></li>
+          <li><a href="#">What 500 days could change</a></li>
+          <li><a href="#">Rules I actually keep</a></li>
+        </ul>
+      </div>
+
+      <div class="archive">
+        <h2>Archive</h2>
+        <ul class="list-tight" id="archiveList">
+          <li><span class="muted">Day 001 — </span><a href="#">Title placeholder</a></li>
+          <li><span class="muted">Day 002 — </span><a href="#">Title placeholder</a></li>
+        </ul>
+      </div>
+      
+      <div style="margin:20px 0">
+        <div class="heatmap" id="heatmap" aria-hidden="true"></div>
+        <span class="sr" id="heatmapLabel">Streak heatmap</span>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section id="rules" class="section">
+      <h2>500/500 — Rules & Rationale</h2>
+      <p><strong>Why:</strong> I lean on AI too much. This is a constraint to grow my own voice.</p>
+      <h3>Rules</h3>
+      <ul class="list-tight">
+        <li><strong>500 words/day</strong> minimum. Format flexible.</li>
+        <li><strong>No AI drafting.</strong> Only spelling/grammar fixes allowed.</li>
+        <li><strong>Public log.</strong> Each day gets a page in the Archive.</li>
+        <li><strong>Influence ledger.</strong> Note who/what shaped the piece.</li>
+        <li><strong>Exceptions log.</strong> If I bend a rule, I say how/why.</li>
+        <li><strong>Missed day?</strong> $5 to charity and continue.</li>
+      </ul>
+      <div class="subscribe">
+        <h3>Get the weekly digest</h3>
+        <div id="substack-embed-2" class="muted">Embed a second subscribe form here.</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>Hi, I’m Grant — final‑semester economics student at Chico State (GPA 3.89), with internships in policy and research. I like building simple tools and writing to think.</p>
+      <p>Past: legislative internships; economic research; investor relations; campaign finance; studied abroad in Spain. Goal: lead or build something meaningful.</p>
+      <p><a href="#">Résumé (PDF)</a></p>
+    </section>
+
+    <!-- ARCHIVE -->
+    <section id="archive" class="section">
+      <h2>Archive (A→Z)</h2>
+      <p class="muted">Alphabetical list of daily pieces. Use tags to filter formats/moods later.</p>
+      <ul class="list-tight" id="alphaList">
+        <li><a href="#">A small note on constraints</a> <span class="muted">— Day 004</span></li>
+        <li><a href="#">Building with boredom</a> <span class="muted">— Day 015</span></li>
+        <li><a href="#">On missing a day</a> <span class="muted">— Day 033</span></li>
+      </ul>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Grant Rooney · <a href="#about">About</a> · <a href="#rules">500/500</a>
+    </footer>
+  </div>
+
+  <script>
+    // ===== Simple section router (hash-based) =====
+    const sections = document.querySelectorAll('.section');
+    const show = (id) => { sections.forEach(s => s.classList.toggle('active', s.id === id)); };
+    window.addEventListener('hashchange', () => show(location.hash.slice(1) || 'home'));
+    show(location.hash.slice(1) || 'home');
+
+    // ===== Counters =====
+    // Set your start date (YYYY-MM-DD)
+    const START_DATE = '2025-10-10'; // TODO: update when you begin
+    const MS_DAY = 86400000;
+    const daysIn = Math.max(1, Math.floor((Date.now() - new Date(START_DATE).getTime()) / MS_DAY) + 1);
+    document.getElementById('daysCount').textContent = daysIn;
+    document.getElementById('minWords').textContent = (daysIn * 500).toLocaleString();
+
+    // Random Day button
+    document.getElementById('rndBtn').addEventListener('click', () => {
+      const n = Math.ceil(Math.random() * daysIn);
+      alert(`Jump to Day ${String(n).padStart(3,'0')} (link this to your post once you have permalinks).`);
+    });
+
+    // Quick streak heatmap demo
+    const heatmap = document.getElementById('heatmap');
+    for (let i = 0; i < 210; i++) { // ~6 months grid
+      const d = document.createElement('div');
+      d.className = 'day' + (i < daysIn ? ' hit' : '');
+      heatmap.appendChild(d);
+    }
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
